@@ -1,6 +1,7 @@
-# Root integration file (Step 3: network skeleton with STUB services).
-# Stubs are placeholders; each real service replaces its stub later.
-# Every service lists its networks explicitly - nothing uses Docker's default network.
+# Root integration file.
+# Each protected app sits on its own dedicated network with nginx-gateway,
+# so the apps cannot reach each other directly (see docs/evidence for the
+# lateral-movement test this fixed).
 
 x-stub: &stub
   image: busybox:1.36
@@ -15,24 +16,25 @@ services:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - "${GATEWAY_HTTP_PORT:-80}:80"
-    networks: [gateway-network, app-network, backend-network]
+    networks: [gateway-network, employee-network, developer-network, admin-network, backend-network]
 
   # ---------- Protected test services (P3) ----------
+  # Each app is isolated on its own network, shared only with nginx-gateway.
   employee-portal:
     build: ./services/employee-portal
-    networks: [app-network, monitoring-network]
+    networks: [employee-network]
 
   developer-api:
     build: ./services/developer-api
-    networks: [app-network, monitoring-network]
+    networks: [developer-network]
 
   admin-panel:
     build: ./services/admin-panel
-    networks: [app-network, monitoring-network]
+    networks: [admin-network]
 
   authorization-api-stub:
     build: ./services/authorization-api-stub
-    networks: [app-network, backend-network]
+    networks: [backend-network]
 
   # ---------- Database (P3) ----------
   postgres:
@@ -70,9 +72,13 @@ services:
 networks:
   gateway-network:      # reachable from the host (NGINX publishes ports here)
   identity-network:     # Keycloak side
-  monitoring-network:   # Wazuh + log producers
-  app-network:
-    internal: true      # no route to host/internet
+  monitoring-network:   # for Wazuh, wired in properly in Step 8
+  employee-network:
+    internal: true      # nginx-gateway <-> employee-portal only
+  developer-network:
+    internal: true      # nginx-gateway <-> developer-api only
+  admin-network:
+    internal: true       # nginx-gateway <-> admin-panel only
   backend-network:
     internal: true
   database-network:
