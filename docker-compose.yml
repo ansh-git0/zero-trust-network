@@ -17,7 +17,7 @@ services:
 
   # ---------- Protected test services (P3) ----------
   employee-portal:
-    <<: *stub
+    build: ./services/employee-portal
     networks: [app-network, monitoring-network]
 
   developer-api:
