@@ -1,0 +1,32 @@
+# Wazuh single-node deployment - 2026-09-23T18:48:12Z
+Version: 4.9.2, deployed via monitoring/wazuh-docker/single-node/
+
+## Indexer health
+{
+  "cluster_name" : "opensearch",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "discovered_master" : true,
+  "discovered_cluster_manager" : true,
+  "active_primary_shards" : 11,
+  "active_shards" : 11,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+
+## Dashboard reachability
+HTTP 302
+
+## Container status
+NAME                            IMAGE                         COMMAND                  SERVICE           CREATED          STATUS          PORTS
+single-node-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.9.2   "/entrypoint.sh"         wazuh.dashboard   11 minutes ago   Up 11 minutes   443/tcp, 0.0.0.0:443->5601/tcp, [::]:443->5601/tcp
+single-node-wazuh.indexer-1     wazuh/wazuh-indexer:4.9.2     "/entrypoint.sh open…"   wazuh.indexer     22 minutes ago   Up 22 minutes   0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
+single-node-wazuh.manager-1     wazuh/wazuh-manager:4.9.2     "/init"                  wazuh.manager     15 minutes ago   Up 15 minutes   0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
