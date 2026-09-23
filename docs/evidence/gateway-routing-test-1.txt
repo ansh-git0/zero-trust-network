@@ -1,0 +1,9 @@
+# Gateway routing test - 2026-09-23T17:31:37Z
+## GET /health
+{"service":"nginx-gateway","status":"ok"}
+## GET /employee/health
+{"status":"ok"}
+## GET /developer/health
+{"status":"ok"}
+## GET /admin/health
+{"status":"ok"}

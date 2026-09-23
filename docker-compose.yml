@@ -11,6 +11,8 @@ services:
   # ---------- Gateway (P3) ----------
   nginx-gateway:
     image: nginx:alpine
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - "${GATEWAY_HTTP_PORT:-80}:80"
     networks: [gateway-network, app-network, backend-network]
