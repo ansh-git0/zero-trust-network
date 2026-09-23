@@ -1,0 +1,9 @@
+# Micro-segmentation test 1 - 2026-09-23T16:23:08Z
+## nginx-gateway -> postgres:5432
+nc: bad address 'postgres'
+exit code: 1
+## employee-portal -> postgres:5432
+nc: bad address 'postgres'
+exit code: 1
+## authorization-api -> postgres:5432
+exit code: 0
