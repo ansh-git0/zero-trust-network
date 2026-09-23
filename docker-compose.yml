@@ -30,6 +30,10 @@ services:
     build: ./services/admin-panel
     networks: [app-network, monitoring-network]
 
+  authorization-api-stub:
+    build: ./services/authorization-api-stub
+    networks: [app-network, backend-network]
+
   # ---------- Database (P3) ----------
   postgres:
     image: postgres:16-alpine

@@ -1,0 +1,7 @@
+# auth_request gate test - 2026-09-23T17:48:35Z
+## Step A: flip stub to deny (403)
+GET /employee/health while stub denies:
+HTTP 403
+## Step B: flip stub back to allow (200)
+GET /employee/health while stub allows:
+HTTP 200
