@@ -25,7 +25,7 @@ services:
     networks: [app-network, monitoring-network]
 
   admin-panel:
-    <<: *stub
+    build: ./services/admin-panel
     networks: [app-network, monitoring-network]
 
   # ---------- Database (P3) ----------
