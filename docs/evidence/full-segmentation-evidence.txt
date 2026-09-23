@@ -1,0 +1,43 @@
+# Micro-segmentation evidence - full test - 2026-09-23T18:02:13Z
+
+## PROHIBITED flows (all must FAIL)
+
+### nginx-gateway -> postgres:5432
+nc: bad address 'postgres'
+
+### employee-portal -> postgres:5432
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+### developer-api -> postgres:5432
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+### admin-panel -> postgres:5432
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+### employee-portal -> admin-panel:8003 (lateral movement)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+### developer-api -> employee-portal:8001 (lateral movement)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+## ALLOWED flows (all must SUCCEED)
+
+### authorization-api -> postgres:5432 (has legitimate DB access)
+postgres (172.22.0.3:5432) open
+
+### client (host) -> nginx-gateway -> employee-portal (via gateway)
+HTTP 200
+### client (host) -> nginx-gateway -> developer-api (via gateway)
+HTTP 200
+### client (host) -> nginx-gateway -> admin-panel (via gateway)
+HTTP 200
