@@ -21,7 +21,7 @@ services:
     networks: [app-network, monitoring-network]
 
   developer-api:
-    <<: *stub
+    build: ./services/developer-api
     networks: [app-network, monitoring-network]
 
   admin-panel:
