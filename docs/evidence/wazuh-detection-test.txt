@@ -1,0 +1,25 @@
+# Wazuh log integration + detection test - 2026-09-25T17:04:15Z
+
+## Pipeline: NGINX access.log -> Wazuh agent -> manager -> indexer -> alert
+
+## Test: 6 requests sent while authorization-api-stub set to deny (403)
+
+## Resulting alerts:
+            "http_status" : "403",
+            "level" : 8,
+            "description" : "NGINX ZT gateway: request denied (HTTP 403) by auth_request gate",
+            "http_status" : "403",
+            "level" : 12,
+            "description" : "Multiple NGINX ZT gateway denials (403) within 60 seconds - possible scanning or brute force",
+            "http_status" : "403",
+            "level" : 8,
+            "description" : "NGINX ZT gateway: request denied (HTTP 403) by auth_request gate",
+            "http_status" : "403",
+            "level" : 8,
+            "description" : "NGINX ZT gateway: request denied (HTTP 403) by auth_request gate",
+            "http_status" : "403",
+            "level" : 8,
+            "description" : "NGINX ZT gateway: request denied (HTTP 403) by auth_request gate",
+            "http_status" : "403",
+            "level" : 8,
+            "description" : "NGINX ZT gateway: request denied (HTTP 403) by auth_request gate",

@@ -1,0 +1,15 @@
+{"time":"2026-09-25T16:38:56+00:00","request_id":"4240194db624e9ae4201882fa3210864","method":"GET","uri":"/health","status":200,"upstream":"","authz_status":""}
+{"time":"2026-09-25T16:39:05+00:00","request_id":"3393f4d3736f57c7fb0a9d0bad97725b","method":"GET","uri":"/employee/health","status":200,"upstream":"172.25.0.2:8001","authz_status":"200"}
+{"time":"2026-09-25T16:51:16+00:00","request_id":"3decd711f9bf0d8c9d9df5f58f4c45e1","method":"GET","uri":"/employee/health","status":200,"upstream":"172.25.0.2:8001","authz_status":"200"}
+{"time":"2026-09-25T16:51:16+00:00","request_id":"aa9ba9dbfbcdf3f37a3e02c6c54061c8","method":"GET","uri":"/admin/health","status":200,"upstream":"172.24.0.2:8003","authz_status":"200"}
+{"time":"2026-09-25T16:51:16+00:00","request_id":"471135b1febc246cf560585ff7e2b55c","method":"GET","uri":"/employee/health","status":200,"upstream":"172.25.0.2:8001","authz_status":"200"}
+{"time":"2026-09-25T16:51:16+00:00","request_id":"8f5ca418ee61428c59692cdb57e86952","method":"GET","uri":"/admin/health","status":200,"upstream":"172.24.0.2:8003","authz_status":"200"}
+{"time":"2026-09-25T16:51:17+00:00","request_id":"77298bd03b9e2bbb11f8eedca6ceaf8a","method":"GET","uri":"/employee/health","status":200,"upstream":"172.25.0.2:8001","authz_status":"200"}
+{"time":"2026-09-25T16:51:17+00:00","request_id":"aa902373e8cbc82195eb0a17361f1540","method":"GET","uri":"/admin/health","status":200,"upstream":"172.24.0.2:8003","authz_status":"200"}
+{"time":"2026-09-25T16:59:38+00:00","request_id":"ad3675e7adc9e468ac8a1e484abccbcf","method":"GET","uri":"/employee/health","http_status":200,"upstream":"172.25.0.2:8001","authz_status":"200"}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"299823925354986261e2ac9abce15f17","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"390103a167d50228a7f597bc39a31f46","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"0b804940f21da76c0c754c0d40e7606d","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"0ae90ec325fbba7307e957a6a975ecb2","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"bf65c7f00a5d1a3aeeb7ee6ba69c76b7","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
+{"time":"2026-09-25T17:01:39+00:00","request_id":"6afd1c54ac937f8e2fe5f13dabefb030","method":"GET","uri":"/employee/health","http_status":403,"upstream":"","authz_status":""}
