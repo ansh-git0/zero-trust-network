@@ -1,0 +1,31 @@
+=== Scenario 1: Employee -> Admin Panel access ===
+Expected: policy denial based on role.
+  [BLOCKED - dependency pending] authorization-api-stub has no role logic yet (always allows). Needs Person 2's real OPA-backed authorization-api.
+
+=== Scenario 2: Developer -> restricted DB/SSH access ===
+Expected: denial.
+  [BLOCKED - dependency pending] No real authorization-api with DB/SSH policy exists yet (currently busybox stub).
+
+=== Scenario 3: Simulated compromised device (posture change) ===
+Expected: increased risk, changed access.
+  [BLOCKED - dependency pending] risk-engine is still a busybox stub with no posture logic (Person 2).
+
+=== Scenario 4: Lateral movement between isolated services ===
+Expected: network-level blocking.
+  [PASS] employee-portal cannot reach admin-panel (network-level block, not app-level): Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+=== Scenario 5: Valid credentials from untrusted/high-risk device ===
+Expected: step-up MFA or denial.
+  [BLOCKED - dependency pending] device-registry is still a busybox stub with no device-trust logic (Person 2).
+
+=== Scenario 6: Privilege escalation via resource outside role ===
+Expected: OPA denial.
+  [BLOCKED - dependency pending] No real OPA policy exists yet -- authorization-api-stub always allows regardless of resource.
+
+=== Scenario 7: Malformed / replayed / expired tokens ===
+Expected: authentication failure.
+  [GAP FOUND] Gateway accepts requests with a garbage/malformed token AND with no token at all (both returned 200). Token validation is not yet enforced -- this will be closed once Keycloak (Person 1) issues real JWTs and authorization-api validates them.
+
+=== Summary: 1 passed, 5 blocked on teammate dependencies, 1 real gaps found ===
