@@ -1,2 +1,4 @@
 .env
 monitoring/wazuh-docker/
+*.deb
+gateway/logs/
